@@ -3,26 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kushal Puja Samagri Bhandar - Rudraksha & Spiritual Items</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <title>Kushal Puja Samagri Bhandar - Spiritual Serenity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cinzel', serif;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+        }
+
+        :root {
+            --primary: #e6e6fa; /* Light purple */
+            --secondary: #fff; /* White */
+            --dark: #4b0082; /* Deep purple for contrast */
+            --accent: #7b68ee; /* Medium purple for buttons */
+            --text: #333; /* Dark text for readability */
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
-            background: #f8f8f8;
-            position: relative;
+            background: var(--secondary);
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Falling Flowers Animation */
-        .falling-flowers {
+        /* Parallax Background */
+        .parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1615038346724-a14935a4a4ca') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+            transform: translateY(0);
+            transition: transform 0.1s linear;
+        }
+
+        /* Falling Petals Animation */
+        .falling-petals {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,85 +53,79 @@
             z-index: -1;
         }
 
-        .flower {
+        .petal {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 12px;
+            height: 12px;
             background: url('https://img.icons8.com/emoji/48/000000/cherry-blossom.png') no-repeat center center/cover;
             animation: fall linear infinite;
-            opacity: 0.7;
+            opacity: 0.5;
         }
 
         @keyframes fall {
             0% {
                 transform: translateY(-100px) rotate(0deg);
-                opacity: 0.7;
+                opacity: 0.5;
             }
             100% {
-                transform: translateY(100vh) rotate(360deg);
+                transform: translateY(100vh) rotate(720deg);
                 opacity: 0;
             }
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #ff6f00, #ffd700);
-            padding: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 2rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
-        header img.banner {
-            width: 100%;
-            max-height: 150px;
-            object-fit: cover;
-            display: block;
+        header img.owner-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--dark);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
 
-        header .owner-photo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ffd700;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            z-index: 10;
+        header img.owner-photo:hover {
+            transform: scale(1.1);
         }
 
         header h1 {
-            position: absolute;
-            top: 80px; /* Adjusted to place below owner photo */
-            left: 2rem;
-            color: white;
-            font-size: 1.8rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: fadeInLeft 1s ease-in-out;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-top: 1rem;
+            color: var(--dark);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-in-out;
         }
 
         /* Navigation */
         nav {
-            background: #1a252f;
+            background: var(--primary);
             padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
-            list-style: none;
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            align-items: center;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            list-style: none;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             font-weight: 700;
+            color: var(--dark);
             padding: 0.5rem 1rem;
             border-radius: 5px;
             transition: all 0.3s ease;
@@ -118,7 +133,8 @@
         }
 
         nav a:hover {
-            background: #ff6f00;
+            background: var(--accent);
+            color: var(--secondary);
             transform: translateY(-2px);
         }
 
@@ -129,7 +145,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background: #ffd700;
+            background: var(--dark);
             transition: width 0.3s ease;
         }
 
@@ -137,13 +153,17 @@
             width: 100%;
         }
 
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 2rem;
-            color: white;
             cursor: pointer;
+            color: var(--dark);
             padding: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: rotate(90deg);
         }
 
         .nav-menu {
@@ -152,252 +172,236 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://images.unsplash.com/photo-1615038346724-a14935a4a4ca') no-repeat center center/cover;
-            height: 70vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            background: url('shop_background.jpg') no-repeat center center/cover;
+            background-color: rgba(230, 230, 250, 0.8); /* Light purple overlay */
             background-blend-mode: overlay;
+            position: relative;
         }
 
         .hero-content {
+            max-width: 800px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text);
             max-width: 600px;
             margin: 0 auto;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Gallery Section */
         .gallery {
-            padding: 4rem 2rem;
-            background: #fff;
+            padding: 5rem 2rem;
+            background: var(--secondary);
             text-align: center;
         }
 
         .gallery h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #ff6f00;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2.5rem;
+            color: var(--dark);
             animation: fadeInUp 1s ease-in-out;
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
+            gap: 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .gallery-item {
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s ease;
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Shop Photos Section */
-        .shop-photos {
-            padding: 4rem 2rem;
-            background: #f8f8f8;
-            text-align: center;
-        }
-
-        .shop-photos h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #ff6f00;
-            animation: fadeInUp 1s ease-in-out;
-        }
-
-        .shop-photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .shop-photo-item {
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .shop-photo-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .shop-photo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .shop-photo-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         /* Special Products Section */
         .special-products {
-            padding: 4rem 2rem;
-            background: #f8f8f8;
+            padding: 5rem 2rem;
+            background: var(--primary);
             text-align: center;
         }
 
         .special-products h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #ff6f00;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2.5rem;
+            color: var(--dark);
             animation: fadeInUp 1s ease-in-out;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
+            gap: 2rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .product-card {
-            background: white;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             text-align: center;
         }
 
         .product-card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
         }
 
         .product-card h3 {
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            margin: 1rem 0;
-            color: #2c3e50;
+            margin: 0.5rem 0;
+            color: var(--dark);
         }
 
         .product-card p {
             font-size: 1rem;
-            color: #666;
+            margin-bottom: 1rem;
+            color: var(--text);
         }
 
-        .product-card a {
+        .product-card a, .view-more {
             display: inline-flex;
             align-items: center;
-            background: #ff6f00;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            padding: 0.75rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1rem;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
-        .product-card a:hover {
-            background: #e65c00;
-            transform: scale(1.05);
+        .product-card a:hover, .view-more:hover {
+            background: #6a5acd;
+            transform: translateY(-3px);
+        }
+
+        .view-more {
+            margin: 3rem auto 0;
+            font-size: 1.2rem;
         }
 
         /* Contact Section */
         .contact {
-            padding: 4rem 2rem;
-            background: #2c3e50;
-            color: white;
+            padding: 5rem 2rem;
+            background: var(--secondary);
             text-align: center;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--dark);
             animation: fadeInUp 1s ease-in-out;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info p {
             font-size: 1.1rem;
-            margin: 0.5rem 0;
+            margin: 1rem 0;
+            color: var(--text);
+            font-weight: 400;
+            line-height: 1.8;
         }
 
         .contact-info a {
-            color: #ffd700;
+            color: var(--accent);
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
-            color: #ff6f00;
+            color: var(--dark);
         }
 
         .whatsapp-button {
             display: inline-flex;
             align-items: center;
-            background: #000000;
-            color: #000000;
+            background: #25D366;
             padding: 0.75rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1.1rem;
-            margin-top: 1rem;
-            transition: background 0.3s, transform 0.2s;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         .whatsapp-button img {
             width: 24px;
             height: 24px;
-            margin-right: 0.5rem;
+            margin-right: 0.75rem;
         }
 
         .whatsapp-button:hover {
-            background: #333333;
-            transform: scale(1.05);
+            background: #1ebe57;
+            transform: translateY(-3px);
         }
 
         /* Footer */
         footer {
-            background: #333;
-            color: white;
+            background: var(--dark);
+            padding: 2rem;
             text-align: center;
-            padding: 1rem;
+            font-size: 0.95rem;
+            color: var(--secondary);
         }
 
         /* Animations */
@@ -407,40 +411,46 @@
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid, .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+
+            header h1 {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+            }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 70vh;
+            }
+
             .hero h2 {
-                font-size: 2.8rem;
+                font-size: clamp(2rem, 5vw, 3.5rem);
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: clamp(0.9rem, 2vw, 1.3rem);
+            }
+
+            header img.owner-photo {
+                width: 70px;
+                height: 70px;
             }
         }
 
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
             .hamburger {
                 display: block;
             }
@@ -452,9 +462,9 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: #1a252f;
-                padding: 1rem;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                background: var(--primary);
+                padding: 1.5rem;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             }
 
             nav ul.active {
@@ -462,60 +472,56 @@
             }
 
             nav a {
-                padding: 0.75rem;
+                padding: 1rem;
                 font-size: 1.1rem;
             }
 
-            .gallery-grid, .products-grid, .shop-photos-grid {
+            header img.owner-photo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .gallery, .special-products, .contact {
+                padding: 3rem 1.5rem;
+            }
+
+            .gallery-grid, .products-grid {
                 grid-template-columns: 1fr;
             }
 
-            header h1 {
-                font-size: 1.5rem;
-                left: 1rem;
-                top: 70px; /* Adjusted for owner photo */
-            }
-
-            header .owner-photo {
-                width: 50px;
-                height: 50px;
-                top: 5px;
-                left: 5px;
+            .contact-info {
+                padding: 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 60vh;
+            }
+
             .hero h2 {
-                font-size: 1.8rem;
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
             }
 
             .hero p {
-                font-size: 0.9rem;
+                font-size: clamp(0.8rem, 2vw, 1.1rem);
             }
 
-            header img.banner {
-                max-height: 100px;
+            header img.owner-photo {
+                width: 50px;
+                height: 50px;
             }
 
-            header h1 {
-                font-size: 1.2rem;
-                top: 60px; /* Adjusted for owner photo */
-                left: 0.5rem;
+            .gallery h2, .special-products h2, .contact h2 {
+                font-size: clamp(1.8rem, 3.5vw, 2.2rem);
             }
 
-            header .owner-photo {
-                width: 40px;
-                height: 40px;
-                top: 5px;
-                left: 5px;
-            }
-
-            .gallery h2, .special-products h2, .shop-photos h2, .contact h2 {
-                font-size: 2rem;
+            .product-card img, .gallery-item img {
+                height: 200px;
             }
 
             .whatsapp-button {
-                padding: 0.5rem 1.5rem;
+                padding: 0.6rem 1.5rem;
                 font-size: 1rem;
             }
 
@@ -524,20 +530,36 @@
                 height: 20px;
             }
 
-            .product-card a {
-                padding: 0.5rem 1.5rem;
-                font-size: 1rem;
+            .product-card a, .view-more {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h2 {
+                font-size: clamp(1.5rem, 3vw, 2rem);
+            }
+
+            .hero p {
+                font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+            }
+
+            header img.owner-photo {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Falling Flowers Container -->
-    <div class="falling-flowers"></div>
+    <!-- Parallax Background -->
+    <div class="parallax"></div>
+    <!-- Falling Petals -->
+    <div class="falling-petals"></div>
 
     <!-- Header -->
     <header>
-        <img src="shop.jpg" alt="Kushal Puja Samagri Bhandar Banner" class="banner">
         <img src="baba.jpg" alt="Owner Photo" class="owner-photo">
         <h1>Kushal Puja Samagri Bhandar</h1>
     </header>
@@ -548,8 +570,7 @@
         <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#shop-photos">Shop Photos</a></li>
-            <li><a href="#products">Special Products</a></li>
+            <li><a href="#products">Products</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -557,14 +578,14 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Welcome to Kushal Puja Samagri Bhandar</h2>
-            <p>Explore our sacred collection of Rudraksha, Yantras, and other spiritual items to enhance your spiritual journey.</p>
+            <h2>Embrace Spiritual Serenity</h2>
+            <p>Discover our sacred collection of Rudraksha, Yantras, and spiritual items to elevate your spiritual journey.</p>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
-        <h2>Our Collection</h2>
+        <h2>Our Sacred Collection</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
                 <img src="rudrachya.jpg" alt="Rudraksha Beads">
@@ -581,80 +602,66 @@
         </div>
     </section>
 
-    <!-- Shop Photos Section -->
-    <section id="shop-photos" class="shop-photos">
-        <h2>Our Shop</h2>
-        <div class="shop-photos-grid">
-            <div class="shop-photo-item">
-              
-            <div class="shop-photo-item">
-                <img src="int.jpg" alt="Shop Interior">
-            </div>
-            <div class="shop-photo-item">
-                <img src="dis.jpg" alt="Shop Display">
-            </div>
-        </div>
-    </section>
-
     <!-- Special Products Section -->
     <section id="products" class="special-products">
-        <h2>Special Products</h2>
+        <h2>Featured Products</h2>
         <div class="products-grid">
             <div class="product-card">
                 <img src="rudrachya.jpg" alt="5 Mukhi Rudraksha">
                 <h3>5 Mukhi Rudraksha</h3>
                 <p>Authentic Rudraksha for peace and prosperity.</p>
-                <a href="https://wa.me/9841364532?text=Order%20Request:%205%20Mukhi%20Rudraksha" target="_blank">Order Now</a>
+                <a href="https://wa.me/9841364532?text=Order%20Request:%205%20Mukhi%20Rudraksha" target="_blank">Order via WhatsApp</a>
             </div>
             <div class="product-card">
                 <img src="yantra.jpg" alt="Shree Yantra">
                 <h3>Shree Yantra</h3>
                 <p>Sacred geometry for wealth and success.</p>
-                <a href="https://wa.me/9841364532?text=Order%20Request:%20Shree%20Yantra" target="_blank">Order Now</a>
+                <a href="https://wa.me/9841364532?text=Order%20Request:%20Shree%20Yantra" target="_blank">Order via WhatsApp</a>
             </div>
             <div class="product-card">
                 <img src="ganesh.jpg" alt="Ganesha Idol">
                 <h3>Ganesha Idol</h3>
                 <p>Divine idol for blessings and wisdom.</p>
-                <a href="https://wa.me/9841364532?text=Order%20Request:%20Ganesha%20Idol" target="_blank">Order Now</a>
+                <a href="https://wa.me/9841364532?text=Order%20Request:%20Ganesha%20Idol" target="_blank">Order via WhatsApp</a>
             </div>
             <div class="product-card">
                 <img src="statue.jpg" alt="Shiva Lingam">
                 <h3>Shiva Lingam</h3>
                 <p>Sacred symbol for spiritual strength.</p>
-                <a href="https://wa.me/9841364532?text=Order%20Request:%20Shiva%20Lingam" target="_blank">Order Now</a>
+                <a href="https://wa.me/9841364532?text=Order%20Request:%20Shiva%20Lingam" target="_blank">Order via WhatsApp</a>
             </div>
         </div>
+        <a href="products.html" class="view-more">View More Products</a>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <div class="contact-info">
-            <p>WhatsApp: <a href="https://wa.me/9841364532">+977 9841364532</a></p>
-            <p>Email: <a href="mailto:kushalneupane5678@gmail.com">kushalneupane5678@gmail.com</a></p>
-            <p>Address: Pashupati, Kathmandu, Nepal</p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/9841364532">+977 9841364532</a></p>
+            <p><strong>Email:</strong> <a href="mailto:kushalneupane5678@gmail.com">kushalneupane5678@gmail.com</a></p>
+            <p><strong>Address:</strong> Pashupati, Kathmandu, Nepal</p>
+            <p><strong>Business Hours:</strong> 9 AM - 6 PM, Monday - Saturday</p>
             <a href="https://wa.me/9841364532?text=Hello%20Kushal%20Puja%20Samagri%20Bhandar,%20I%20would%20like%20to%20inquire%20about%20your%20products." class="whatsapp-button">
                 <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Logo">
-                Message Us on WhatsApp
+                Inquire Now
             </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>© 2005 Kushal Puja Samagri Bhandar. </p>
+        <p>© 2005 - 2025 Kushal Puja Samagri Bhandar. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Smooth Scroll for Navigation
+        // Smooth Scroll
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
                 targetSection.scrollIntoView({ behavior: 'smooth' });
-                // Close menu on link click for mobile
                 document.querySelector('.nav-menu').classList.remove('active');
                 document.querySelector('.hamburger').textContent = '☰';
             });
@@ -667,19 +674,37 @@
             this.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Falling Flowers Animation
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.animationDuration = Math.random() * 5 + 5 + 's';
-            flower.style.animationDelay = Math.random() * 3 + 's';
-            document.querySelector('.falling-flowers').appendChild(flower);
-            setTimeout(() => flower.remove(), 10000);
+        // Falling Petals Animation
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 4 + 3 + 's';
+            petal.style.animationDelay = Math.random() * 2 + 's';
+            document.querySelector('.falling-petals').appendChild(petal);
+            setTimeout(() => petal.remove(), 7000);
         }
 
-        // Generate flowers at intervals
-        setInterval(createFlower, 500);
+        setInterval(createPetal, 400);
+
+        // Parallax Scroll Effect
+        window.addEventListener('scroll', () => {
+            const parallax = document.querySelector('.parallax');
+            const scrollPosition = window.pageYOffset;
+            parallax.style.transform = `translateY(${scrollPosition * 0.4}px)`;
+        });
+
+        // Lazy Load Images
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src;
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '100px' });
+
+        images.forEach(img => imageObserver.observe(img));
     </script>
-</body>
-</html>
